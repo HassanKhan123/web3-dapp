@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 
 import useFetch from "../hooks/useFetch";
-import dummyData from "../utils/dummyData";
+
 import { shortenAddress } from "../utils/shortenAddress";
 
 const TransactionsCard = ({
@@ -30,7 +30,7 @@ const TransactionsCard = ({
       <div className="flex flex-col items-center w-full mt-3">
         <div className="display-flex justify-start w-full mb-6 p-2">
           <a
-            href={`https://ropsten.etherscan.io/address/${addressFrom}`}
+            href={`https://rinkeby.etherscan.io/address/${addressFrom}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -39,7 +39,7 @@ const TransactionsCard = ({
             </p>
           </a>
           <a
-            href={`https://ropsten.etherscan.io/address/${addressTo}`}
+            href={`https://rinkeby.etherscan.io/address/${addressTo}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -85,7 +85,7 @@ const Transactions = () => {
         )}
 
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {[...dummyData, ...transactions].reverse().map((transaction, i) => (
+          {[...transactions].reverse().map((transaction, i) => (
             <TransactionsCard key={i} {...transaction} />
           ))}
         </div>
